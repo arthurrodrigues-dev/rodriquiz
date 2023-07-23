@@ -1,19 +1,25 @@
-import { QUIZ_API_KEY } from "./apikey.js";
-
-async function getData(quiz_name) {
-    const API_URL = `https://quizapi.io/api/v1/questions?apiKey=${QUIZ_API_KEY}&limit=5&category=${quiz_name}&difficulty=medium`
+async function getData(id) {
+    const API_URL = `https://opentdb.com/api.php?amount=10&category=${id}&difficulty=medium&type=multiple`
     const response = await fetch(API_URL);
-    const responseJSON = await response.json();
-
-    console.log(responseJSON);
+    return response.json();
 }
 
-const arrayQuiz = document.querySelectorAll('img');
+const category_id = {
+    "cartoon": 32,
+    "anime": 31,
+    "nature": 17
+}
 
-arrayQuiz.forEach((quiz) => {
-    quiz.addEventListener('click',() => {
-            document.querySelector('.rodriquiz-menu').classList.add('hidden');
-            getData(quiz.id);
-        }
-    );
+const cards = document.querySelectorAll('.card');
+cards.forEach(card => {
+    card.addEventListener('click', async ()  => {
+        card.parentNode.remove();
+        const data = await getData(category_id[card.classList[1]]);
+        startQuiz(data);
+    })
 })
+
+const startQuiz = async (data) => {
+    console.log("quiz initialized");
+    console.log(data);
+}
