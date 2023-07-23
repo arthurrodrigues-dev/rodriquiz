@@ -1,1 +1,0 @@
-export const QUIZ_API_KEY = "oPmJnVqmHRS6fLAQgJgTQxxWBxlZ78bxju4QnbYK";
