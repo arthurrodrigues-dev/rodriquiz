@@ -25,37 +25,35 @@ const startQuiz = async (data) => {
     const questionDisplay = document.querySelector('.question-text');
     const answersDisplay = document.querySelectorAll('.answer');
     const nextButton = document.querySelector('.nextButton');
-   
-    // answersDisplay.forEach(display => {
-    //     display.innerText = 'oi';
 
-    //     display.addEventListener('click', () => {
-    //         console.log('oi');
-    //         if (nextButton.classList.contains('hidden')) {
-    //             nextButton.classList.remove('hidden');
-    //         }
-    //         console.log('oi');
+    console.log(data);
 
-    //         await waitForClick(nextButton);
-    //         console.log('botao clicado! :D');
-    //     })
+
+    for (let i = 0; i < data.results.length; i++) {
+        numberDisplay.innerText = `${i + 1}/10`
+        questionDisplay.innerText = data.results[i].question
+        const answers = 
+
         
-    // })
-   
-    // for (let i = 1; i < 2; i++) {
 
-    //     numberDisplay.innerText = `${i}/10`;
-    //     questionDisplay.innerText = data.results[i].question
+        await waitForClick(answersDisplay);
+        nextButton.classList.remove('hidden');
+        await waitForClick([nextButton]);
+        nextButton.classList.add('hidden');
+    }
 
-
-    //     break;
-    // }
 }
 
-const waitForClick = (button) => {
+const shuffleArray = (array) => {
+   return array.sort(() => Math.random() - 0.5);
+}
+
+const waitForClick = (buttonsArray) => {
     return new Promise((resolve) => {
-        button.addEventListener('click', () => {
-            resolve();
+        buttonsArray.forEach(button => {
+            button.addEventListener('click', () => {
+                resolve();
+            })
         })
     })
 }
