@@ -26,11 +26,10 @@ const startQuiz = async (data) => {
     const questionDisplay = document.querySelector('.question-text');
     const spanAnswers = document.querySelectorAll('.span-answer');
 
+    console.log(data);
     // Buttons
     const nextButton = document.querySelector('.nextButton');
     const divButton = document.querySelectorAll('.answer');
-    
-    console.log(data);
 
     for (let i = 0; i < data.results.length; i++) {
         const { incorrect_answers, correct_answer, question } = data.results[i];
@@ -46,12 +45,16 @@ const startQuiz = async (data) => {
         numberDisplay.innerText = `${i + 1}/10`
         questionDisplay.innerHTML = question;
         
+         // fill the spans and search for div right answer
+         
+        let rightDiv;
         for (let j = 0; j < 4; j++) {
             spanAnswers[j].innerHTML = answers[j];
-        }
+            if (answers[j] === correct_answer) {
+                rightDiv = spanAnswers[j].parentElement;
+            }
 
-        // search for the right div answer
-        const rightDiv = Array.from(spanAnswers).find(span => span.innerHTML == correct_answer).parentElement; // pay attention for possible bugs in this line
+        }
 
         // wait for button click and check the user answer
         const buttonClicked = await waitForClick(divButton);
