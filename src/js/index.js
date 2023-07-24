@@ -21,49 +21,52 @@ cards.forEach(card => {
 })
 
 const startQuiz = async (data) => {
+    // Display elements
     const numberDisplay = document.querySelector('.current-question');
     const questionDisplay = document.querySelector('.question-text');
+    const spanAnswers = document.querySelectorAll('.span-answer');
+
+    // Buttons
     const nextButton = document.querySelector('.nextButton');
     const divButton = document.querySelectorAll('.answer');
-    const spanAnswers = document.querySelectorAll('.span-answer');
     
-
     console.log(data);
 
     for (let i = 0; i < data.results.length; i++) {
-        const incorrectAnswers = data.results[i]['incorrect_answers'];
-        const correct = data.results[i]['correct_answer']
+        const { incorrect_answers, correct_answer, question } = data.results[i];
+
         console.log("Correct answer: ");
-        console.log(correct);
-        let answers = incorrectAnswers.concat(correct)
-        let question = data.results[i].question;
-
-        shuffle(answers);
+        console.log(correct_answer);
         
-        let rightDiv;
-        for (let j = 0; j < 4; j++) {
-            spanAnswers[j].innerHTML = answers[j];
+        // shuffle answers
+        let answers = incorrect_answers.concat(correct_answer)
+        shuffle(answers);
 
-            if (answers[j] === correct) {
-                rightDiv = spanAnswers[j].parentElement;
-                console.log(rightDiv);
-            }
-        }
-    
+        // fill the questions and answers
         numberDisplay.innerText = `${i + 1}/10`
         questionDisplay.innerHTML = question;
         
+        for (let j = 0; j < 4; j++) {
+            spanAnswers[j].innerHTML = answers[j];
+        }
 
+        // search for the right div answer
+        const rightDiv = Array.from(spanAnswers).find(span => span.innerHTML === correct_answer).parentElement;
+
+        // wait for button click and check the user answer
         const buttonClicked = await waitForClick(divButton);
-        if (buttonClicked.children[0].innerHTML === correct) {
+        if (buttonClicked.children[0].innerHTML === correctAnswer) {
             buttonClicked.classList.add('correct');      
         } else {
             rightDiv.classList.add('correct');
             buttonClicked.classList.add('wrong');
         }
 
+        // show the next question button
         nextButton.classList.remove('hidden');
         await waitForClick([nextButton]);
+
+        // remove classes and hides the next question button
         buttonClicked.classList.remove('correct');
         buttonClicked.classList.remove('wrong');
         rightDiv.classList.remove('correct');
