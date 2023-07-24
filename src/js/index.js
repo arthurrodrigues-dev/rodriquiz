@@ -23,20 +23,29 @@ cards.forEach(card => {
 const startQuiz = async (data) => {
     const numberDisplay = document.querySelector('.current-question');
     const questionDisplay = document.querySelector('.question-text');
-    const answersDisplay = document.querySelectorAll('.answer');
     const nextButton = document.querySelector('.nextButton');
-
-    console.log(data);
-
+    const divButton = document.querySelectorAll('.answer');
+    const spanAnswers = document.querySelectorAll('.span-answer');
+    
 
     for (let i = 0; i < data.results.length; i++) {
-        numberDisplay.innerText = `${i + 1}/10`
-        questionDisplay.innerText = data.results[i].question
-        const answers = 
+        const incorrectAnswers = data.results[i]['incorrect_answers'];
+        const correct = data.results[i]['correct_answer']
+        let answers = incorrectAnswers.concat(correct)
+        let question = data.results[i].question;
 
+        shuffle(answers);
+        
+        for (let j = 0; j < 4; j++) {
+            spanAnswers[j].innerText = answers[j];
+        }
+
+    
+        numberDisplay.innerText = `${i + 1}/10`
+        questionDisplay.innerHTML = question;
         
 
-        await waitForClick(answersDisplay);
+        await waitForClick(divButton);
         nextButton.classList.remove('hidden');
         await waitForClick([nextButton]);
         nextButton.classList.add('hidden');
@@ -44,8 +53,8 @@ const startQuiz = async (data) => {
 
 }
 
-const shuffleArray = (array) => {
-   return array.sort(() => Math.random() - 0.5);
+const shuffle = (array) => {
+   array.sort(() => Math.random() - 0.5);
 }
 
 const waitForClick = (buttonsArray) => {
