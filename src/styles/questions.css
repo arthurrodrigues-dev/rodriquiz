@@ -1,0 +1,78 @@
+.questions {
+    color: #000;
+    background-color: #fff;
+    width: 100%;
+    max-width: 540px;
+    margin: 25px auto;
+}
+
+.question-header {
+    color: #353484;
+    text-align: center;
+    font-weight: 600;
+}
+
+.question-header h1 {
+    padding: 30px 30px 20px 30px;
+}
+
+.question-header span {
+    border: 2px solid rgba(104, 101, 101, 0.305);
+    padding: 5px 15px;
+    font-size: 1.3rem;
+}
+
+
+.question-text {
+    color: #000;
+    padding: 40px;
+    font-size: 1.5rem;
+}
+
+.answers {
+    width: 75%;
+    /* border: 2px solid magenta; */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 1.3rem;
+}
+
+.answers div {
+    background-color: #353484;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 5px 5px 0px #797979;
+}
+
+.div-button {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.div-button button {
+    padding: 15px 50px;
+    border-radius: 10px;
+    background-color: #353484;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0px 5px 5px 0px #797979;
+}
+
+.div-button button:hover,
+.answers div:hover {
+    background-color: rgb(164, 164, 255);
+    color: #000;
+}
+
+.div-button button:active,
+.answers div:hover:active {
+    box-shadow:  inset 0px 5px 5px 0px #797979;
+}

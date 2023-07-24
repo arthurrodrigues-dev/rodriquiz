@@ -13,7 +13,8 @@ const category_id = {
 const cards = document.querySelectorAll('.card');
 cards.forEach(card => {
     card.addEventListener('click', async ()  => {
-        card.parentNode.remove();
+        document.querySelector('.main-menu').classList.add('hidden');
+        document.querySelector('.questions').classList.remove('hidden');
         const data = await getData(category_id[card.classList[1]]);
         startQuiz(data);
     })

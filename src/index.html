@@ -8,26 +8,48 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/styles/menu.css">
+    <link rel="stylesheet" href="styles/questions.css">
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>rodriquiz</h1>
-            <p class="text-focus-in">Please, select a QUIZ</p>
+        <div class="main-menu">
+            <div class="header">
+                <h1>rodriquiz</h1>
+                <p class="text-focus-in">Please, select a QUIZ</p>
+            </div>
+            <div class="menu">
+                <div class="card cartoon">
+                    <img src="" alt="">
+                    Cartoon
+                </div>
+                <div class="card anime">
+                    <img src="../images/saitama.png" alt="saitama">
+                    Anime & Manga
+                </div>
+                <div class="card nature">
+                    <img src="../images/nature-icon-png-14.jpg" alt="nature">
+                    Science & Nature
+                </div>
+            
+            </div>
         </div>
 
-        <div class="menu"> 
-            <div class="card cartoon">
-                <img src="" alt="">    
-                Cartoon
+        <div class="questions hidden">
+            <div class="question-header">
+                <h1>rodriquiz</h1>
+                <span>5/10</span>
+                <p class="question-text">Which actor portrays "Walter White" in the series "Breaking Bad"? </p>
             </div>
-            <div class="card anime">
-                <img src="../images/saitama.png" alt="saitama">
-                Anime & Manga
+
+            <div class="answers">   
+                <div>a) <span class="answer">Andrew Lincoln</span></div>
+                <div>b) <span class="answer">Bryan Cranston</span></div>
+                <div>c) <span class="answer">Aaron Paul</span></div>
+                <div>d) <span class="answer">Vilnius</span></div>
             </div>
-            <div class="card nature">
-                <img src="../images/nature-icon-png-14.jpg" alt="nature">
-                Science & Nature
+
+            <div class="div-button">
+                <button class="hidden">Next</button>
             </div>
             
         </div>
@@ -36,6 +58,5 @@
 
     </div>
     <script type="module" src="js/index.js"></script>
-    <script src="js/anotherapi.js"></script>
 </body>
 </html>
