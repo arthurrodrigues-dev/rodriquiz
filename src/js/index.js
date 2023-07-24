@@ -7,7 +7,7 @@ async function getData(id) {
 const category_id = {
     "cartoon": 32,
     "anime": 31,
-    "nature": 17
+    "comics": 29
 }
 
 const cards = document.querySelectorAll('.card');
@@ -26,16 +26,13 @@ const startQuiz = async (data) => {
     const questionDisplay = document.querySelector('.question-text');
     const spanAnswers = document.querySelectorAll('.span-answer');
 
-    console.log(data);
     // Buttons
     const nextButton = document.querySelector('.nextButton');
     const divButton = document.querySelectorAll('.answer');
-
+    
+    let score = 0;
     for (let i = 0; i < data.results.length; i++) {
         const { incorrect_answers, correct_answer, question } = data.results[i];
-
-        console.log("Correct answer: ");
-        console.log(correct_answer);
         
         // shuffle answers
         let answers = incorrect_answers.concat(correct_answer)
@@ -56,17 +53,25 @@ const startQuiz = async (data) => {
 
         }
 
-        // wait for button click and check the user answer
+        // check the user answer and calculates the score
         const buttonClicked = await waitForClick(divButton);
         if (buttonClicked.children[0].innerHTML === correct_answer) {
             buttonClicked.classList.add('correct');      
+            score++;
         } else {
             rightDiv.classList.add('correct');
             buttonClicked.classList.add('wrong');
         }
 
         // show the next question button
-        nextButton.classList.remove('hidden');
+        if (i != data.results.length - 1) {
+            nextButton.classList.remove('hidden');
+        } else {
+            document.querySelector('.score').classList.remove('hidden');
+            document.querySelector('.span-score').innerHTML = score;
+            return;
+        }
+
         await waitForClick([nextButton]);
 
         // remove classes and hides the next question button

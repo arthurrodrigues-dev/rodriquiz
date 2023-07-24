@@ -9,32 +9,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/styles/menu.css">
     <link rel="stylesheet" href="styles/questions.css">
+    <link rel="stylesheet" href="styles/score.css">
 </head>
 <body>
     <div class="container">
-        <div class="main-menu">
+
+        <div class="main-menu"> 
+
             <div class="header">
                 <h1>rodriquiz</h1>
                 <p class="text-focus-in">Please, select a QUIZ</p>
             </div>
+
             <div class="menu">
-                <div class="card cartoon">
-                    <img src="" alt="">
-                    Cartoon
-                </div>
-                <div class="card anime">
-                    <img src="../images/saitama.png" alt="saitama">
-                    Anime & Manga
-                </div>
-                <div class="card nature">
-                    <img src="../images/nature-icon-png-14.jpg" alt="nature">
-                    Science & Nature
-                </div>
-            
+                <div class="card cartoon"></div>
+                <div class="card anime"></div>
+                <div class="card comics"></div>
             </div>
+
         </div>
 
-        <div class="questions hidden">
+        <div class="questions hidden scale-up-center">
+
             <div class="question-header">
                 <h1>rodriquiz</h1>
                 <span class="current-question"></span>
@@ -42,28 +38,30 @@
             </div>
 
             <div class="answers">   
-                <div class="answer">a) 
+
+                <div class="answer">a&#41; 
                     <span class="span-answer"></span>
                 </div>
-                <div class="answer">b) 
+
+                <div class="answer">b&#41; 
                     <span class="span-answer"></span>
                 </div>
-                <div class="answer">c) 
+
+                <div class="answer">c&#41; 
                     <span class="span-answer"></span>
                 </div>
-                <div class="answer">d) 
+
+                <div class="answer">d&#41;
                     <span class="span-answer"></span>
                 </div>
+
             </div>
 
             <div class="div-button">
                 <button class="nextButton hidden">Next</button>
+                <div class="score hidden">Score: <span class="span-score">9</span> out of 10</div>
             </div>
-            
         </div>
-
-
-
     </div>
     <script type="module" src="js/index.js"></script>
 </body>

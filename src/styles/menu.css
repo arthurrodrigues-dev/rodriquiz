@@ -27,7 +27,7 @@
     text-align: center;
 }
 
-.header h1 {
+h1 {
     font-size: 3rem;
     margin-bottom: 20px;
 }
@@ -45,7 +45,6 @@
 
 .menu {
     width: 100%;
-    max-width: 920px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -59,21 +58,44 @@
     width: 75%;
     padding: 30px;
     max-width: 320px;
+    height: 150px;
     margin-bottom: 30px;
     box-shadow: 0px 0px 8px 0px #000;
-    font-weight: 200;
-    font-size: 1.12rem;
-    color: #fff;
+    font-weight: 400;
+    font-size: 1.6rem;
+    color: #ffffff;
     cursor: pointer;
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
     gap: 16px;
+    opacity: 0.3;
+    border-radius: 10px;
 }
 
-.card img {
-    width: 50px;
-    height: 50px;
+.anime,
+.cartoon,
+.comics {
+    background-position: center;
+    background-size: cover;
+}
+
+.anime {
+    background-image: url('../../images/guts.jpg');
+ 
+}
+
+.cartoon {
+    background-image: url('../../images/rick-and-morty.jpg');
+}
+
+.comics {
+    background-image: url('../../images/dc-comic.jpg');
+}
+
+.card:hover {
+    opacity: 1;
+    transition: 0.2s ease-in;
 }
 
 @media screen and (max-width: 920px) {
@@ -83,15 +105,15 @@
     }
 }
 
- @keyframes text-focus-in {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
+@keyframes text-focus-in {
+0% {
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+}
 
-  .hidden {
+.hidden {
     display: none;
-  }
+}
