@@ -51,11 +51,11 @@ const startQuiz = async (data) => {
         }
 
         // search for the right div answer
-        const rightDiv = Array.from(spanAnswers).find(span => span.innerHTML === correct_answer).parentElement;
+        const rightDiv = Array.from(spanAnswers).find(span => span.innerHTML == correct_answer).parentElement; // pay attention for possible bugs in this line
 
         // wait for button click and check the user answer
         const buttonClicked = await waitForClick(divButton);
-        if (buttonClicked.children[0].innerHTML === correctAnswer) {
+        if (buttonClicked.children[0].innerHTML === correct_answer) {
             buttonClicked.classList.add('correct');      
         } else {
             rightDiv.classList.add('correct');
