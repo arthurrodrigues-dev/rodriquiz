@@ -21,6 +21,42 @@ cards.forEach(card => {
 })
 
 const startQuiz = async (data) => {
-    console.log("quiz initialized");
-    console.log(data);
+    const numberDisplay = document.querySelector('.current-question');
+    const questionDisplay = document.querySelector('.question-text');
+    const answersDisplay = document.querySelectorAll('.answer');
+    const nextButton = document.querySelector('.nextButton');
+   
+    // answersDisplay.forEach(display => {
+    //     display.innerText = 'oi';
+
+    //     display.addEventListener('click', () => {
+    //         console.log('oi');
+    //         if (nextButton.classList.contains('hidden')) {
+    //             nextButton.classList.remove('hidden');
+    //         }
+    //         console.log('oi');
+
+    //         await waitForClick(nextButton);
+    //         console.log('botao clicado! :D');
+    //     })
+        
+    // })
+   
+    // for (let i = 1; i < 2; i++) {
+
+    //     numberDisplay.innerText = `${i}/10`;
+    //     questionDisplay.innerText = data.results[i].question
+
+
+    //     break;
+    // }
 }
+
+const waitForClick = (button) => {
+    return new Promise((resolve) => {
+        button.addEventListener('click', () => {
+            resolve();
+        })
+    })
+}
+
