@@ -28,26 +28,44 @@ const startQuiz = async (data) => {
     const spanAnswers = document.querySelectorAll('.span-answer');
     
 
+    console.log(data);
+
     for (let i = 0; i < data.results.length; i++) {
         const incorrectAnswers = data.results[i]['incorrect_answers'];
         const correct = data.results[i]['correct_answer']
+        console.log("Correct answer: ");
+        console.log(correct);
         let answers = incorrectAnswers.concat(correct)
         let question = data.results[i].question;
 
         shuffle(answers);
         
+        let rightDiv;
         for (let j = 0; j < 4; j++) {
-            spanAnswers[j].innerText = answers[j];
-        }
+            spanAnswers[j].innerHTML = answers[j];
 
+            if (spanAnswers[j].innerHTML === correct) {
+                rightDiv = spanAnswers[j].parentElement;
+            }
+        }
     
         numberDisplay.innerText = `${i + 1}/10`
         questionDisplay.innerHTML = question;
         
 
-        await waitForClick(divButton);
+        const buttonClicked = await waitForClick(divButton);
+        if (buttonClicked.children[0].innerHTML === correct) {
+            buttonClicked.classList.add('correct');      
+        } else {
+            rightDiv.classList.add('correct');
+            buttonClicked.classList.add('wrong');
+        }
+
         nextButton.classList.remove('hidden');
         await waitForClick([nextButton]);
+        buttonClicked.classList.remove('correct');
+        buttonClicked.classList.remove('wrong');
+        rightDiv.classList.remove('correct');
         nextButton.classList.add('hidden');
     }
 
@@ -61,7 +79,7 @@ const waitForClick = (buttonsArray) => {
     return new Promise((resolve) => {
         buttonsArray.forEach(button => {
             button.addEventListener('click', () => {
-                resolve();
+                resolve(button);
             })
         })
     })
