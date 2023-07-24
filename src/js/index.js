@@ -44,8 +44,9 @@ const startQuiz = async (data) => {
         for (let j = 0; j < 4; j++) {
             spanAnswers[j].innerHTML = answers[j];
 
-            if (spanAnswers[j].innerHTML === correct) {
+            if (answers[j] === correct) {
                 rightDiv = spanAnswers[j].parentElement;
+                console.log(rightDiv);
             }
         }
     
