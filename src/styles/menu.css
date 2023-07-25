@@ -81,16 +81,16 @@ h1 {
 }
 
 .anime {
-    background-image: url('../../images/guts.jpg');
+    background-image: url('../images/guts.jpg');
  
 }
 
 .cartoon {
-    background-image: url('../../images/rick-and-morty.jpg');
+    background-image: url('../images/rick-and-morty.jpg');
 }
 
 .comics {
-    background-image: url('../../images/dc-comic.jpg');
+    background-image: url('../images/dc-comic.jpg');
 }
 
 .card:hover {
