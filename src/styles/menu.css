@@ -6,12 +6,20 @@
     font-family: 'Outfit', sans-serif;
 }
 
+:root {
+    --box-shadow: #797979;
+    --dark-purple: #000036;
+    --lilac: #353484;
+    --light-lilac: #6D60AE;
+    --pink: #D8ABED;
+}
+
 /* container style */
 
 .container {
     width: 100%;
     min-height: 100vh;
-    background-image: linear-gradient(120deg, #000036, #353484, #6D60AE, #D8ABED);
+    background-image: linear-gradient(120deg, var(--dark-purple), var(--lilac), var(--light-lilac), var(--pink));
     padding: 10px;
 }
 

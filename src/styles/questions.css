@@ -1,9 +1,10 @@
-.questions {
+.container-quiz {
     color: #000;
     background-color: #fff;
     width: 100%;
     max-width: 540px;
-    max-height: 920px;
+    height: 85vh;
+    max-height: 683px;
     overflow: hidden;
     margin: 25px auto;
 }
@@ -14,7 +15,7 @@
 }
 
 .question-header {
-    color: #353484;
+    color: var(--lilac);
     text-align: center;
     font-weight: 600;
 }
@@ -29,14 +30,13 @@
     font-size: 1.3rem;
 }
 
-
-.question-text {
+.quiz-question {
     color: #000;
-    padding: 40px;
-    font-size: 1.5rem;
+    padding: 45px;
+    font-size: 1.3rem;
 }
 
-.answers {
+.quiz-options {
     width: 75%;
     margin: 0 auto;
     display: flex;
@@ -45,32 +45,31 @@
     font-size: 1.3rem;
 }
 
-.answers .answer {
-    background-color: #353484;
+.option {
+    background-color: var(--lilac);
     color: #fff;
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
-    box-shadow: 0px 5px 5px 0px #797979;
+    list-style: none;
+    box-shadow: 0px 5px 5px 0px var(--box-shadow);
 }
 
-.answer.correct {
+.option.correct,
+.option.correct:hover {
     background-color: rgb(88, 185, 88);
 }
 
-.answer.correct:hover {
-    background-color: rgb(88, 185, 88);
-    color: #fff;
-}
-
-.answer.wrong {
+.option.wrong,
+.option.wrong:hover {
     background-color: rgba(206, 38, 38, 0.744);
 }
 
-.answer.wrong:hover {
-    background-color: rgba(206, 38, 38, 0.744);
+.option.correct:hover,
+.option.wrong:hover {
     color: #fff;
 }
+
 
 .div-button {
     margin: 0 auto;
@@ -83,42 +82,41 @@
 .div-button button {
     padding: 15px 50px;
     border-radius: 10px;
-    background-color: #353484;
+    background-color: var(--lilac);
     color: #fff;
     font-size: 1.5rem;
     cursor: pointer;
-    box-shadow: 0px 5px 5px 0px #797979;
+    box-shadow: 0px 5px 5px 0px var(--box-shadow);
 }
 
 .div-button button:hover,
-.answers div:hover {
+.option:hover {
     background-color: rgb(164, 164, 255);
     color: #000;
 }
 
 .div-button button:active,
-.answers div:hover:active {
-    box-shadow:  inset 0px 5px 5px 0px #797979;
+.option:hover:active {
+    box-shadow:  inset 0px 5px 5px 0px var(--box-shadow);
 }
 
- @-webkit-keyframes scale-up-center {
-    0% {
-      -webkit-transform: scale(0.5);
-              transform: scale(0.5);
-    }
-    100% {
-      -webkit-transform: scale(1);
-              transform: scale(1);
-    }
-  }
-  @keyframes scale-up-center {
-    0% {
-      -webkit-transform: scale(0.5);
-              transform: scale(0.5);
-    }
-    100% {
-      -webkit-transform: scale(1);
-              transform: scale(1);
-    }
-  }
-  
+@-webkit-keyframes scale-up-center {
+0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+}
+100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+}
+}
+@keyframes scale-up-center {
+0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+}
+100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+}
+}

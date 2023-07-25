@@ -6,6 +6,7 @@ const _cards = document.querySelectorAll('.card');
 const _nextBtn = document.querySelector('.nextButton');
 const _currentQuestion = document.querySelector('.current-question');
 
+
 const category_id = { "cartoon": 32, "anime": 31, "comics": 29}
 
 let correctAnswer = "", score = 0, _rightAnswer;
@@ -83,6 +84,7 @@ const atualizeQuestionData = (currentQuestion) => {
             <li class="option">&#${"9" + (index + 7) < 100? "9" + (index + 7) : 100};&#41; <span class="option-span">${option}</span></li>
         `).join('')}
     `;
+
 
     // search for right li element to display
     const _options = document.querySelectorAll('.option-span');
