@@ -4,7 +4,7 @@
     width: 100%;
     max-width: 540px;
     height: 85vh;
-    max-height: 920px;
+    max-height: 683px;
     overflow: hidden;
     margin: 25px auto;
 }
@@ -98,6 +98,25 @@
 .div-button button:active,
 .option:hover:active {
     box-shadow:  inset 0px 5px 5px 0px var(--box-shadow);
+}
+
+@media screen and (max-width: 920px) {
+    .container-quiz {
+        height: 100vh;
+
+    }
+
+    .quiz-question {
+        padding: 30px;
+    }
+
+    .option, .quiz-question {
+        font-size: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
 }
 
 @-webkit-keyframes scale-up-center {
