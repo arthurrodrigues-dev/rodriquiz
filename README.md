@@ -1,4 +1,4 @@
-<h1>rodriquiz</h1>
+<h1><a href="https://rodriquiz.vercel.app">rodriquiz</a></h1>
 <p>A Quiz app made with HTML, CSS and JavaScript, consuming a Trivia API.</p>
 
 <h2>Preview</h2>
